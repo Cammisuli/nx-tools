@@ -25,6 +25,13 @@
     "compodoc-e2e": {
       "tags": [],
       "implicitDependencies": ["compodoc"]
+    },
+    "storydocs": {
+      "tags": []
+    },
+    "storydocs-e2e": {
+      "tags": [],
+      "implicitDependencies": ["storydocs"]
     }
   }
 }

@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "id": "Storydocs",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "project": {
+      "description": "Project name to add the architect to.",
+      "type": "string",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-prompt": "Which project the architect should be added to?"
+    },
+    "configureCypress": {
+      "description": "Run the cypress-configure schematic",
+      "type": "boolean",
+      "x-prompt": "Configure a cypress e2e app to run against the storybook instance?"
+    },
+    "externalCompodoc": {
+      "description": "Use an existing target for Compodoc.",
+      "type": "boolean",
+      "default": false
+    },
+    "externalStorybook": {
+      "description": "Use an existing target for Storybook.",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": ["project"]
+}

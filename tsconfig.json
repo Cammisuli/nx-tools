@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@twittwer/compodoc": ["libs/compodoc/src/index.ts"]
+      "@twittwer/compodoc": ["libs/compodoc/src/index.ts"],
+      "@twittwer/storydocs": ["libs/storydocs/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

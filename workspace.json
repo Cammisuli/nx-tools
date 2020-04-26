@@ -79,6 +79,78 @@
           }
         }
       }
+    },
+    "storydocs": {
+      "root": "libs/storydocs",
+      "sourceRoot": "libs/storydocs/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/storydocs/.eslintrc",
+            "tsConfig": [
+              "libs/storydocs/tsconfig.lib.json",
+              "libs/storydocs/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/storydocs/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/storydocs/jest.config.js",
+            "tsConfig": "libs/storydocs/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/storydocs",
+            "tsConfig": "libs/storydocs/tsconfig.lib.json",
+            "packageJson": "libs/storydocs/package.json",
+            "main": "libs/storydocs/src/index.ts",
+            "assets": [
+              "libs/storydocs/*.md",
+              {
+                "input": "./libs/storydocs/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./libs/storydocs",
+                "glob": "collection.json",
+                "output": "."
+              },
+              {
+                "input": "./libs/storydocs",
+                "glob": "builders.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "storydocs-e2e": {
+      "projectType": "application",
+      "root": "apps/storydocs-e2e",
+      "sourceRoot": "apps/storydocs-e2e/src",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "storydocs:build",
+            "npmPackageName": "@twittwer/storydocs",
+            "pluginOutputPath": "dist/libs/storydocs",
+            "jestConfig": "apps/storydocs-e2e/jest.config.js",
+            "tsSpecConfig": "apps/storydocs-e2e/tsconfig.spec.json"
+          }
+        }
+      }
     }
   },
   "cli": {

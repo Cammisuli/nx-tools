@@ -1,0 +1,10 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "storydocs": {
+      "implementation": "./src/builders/storydocs/builder",
+      "schema": "./src/builders/storydocs/schema.json",
+      "description": "Builder for Storybook with prior execution of Compodoc."
+    }
+  }
+}

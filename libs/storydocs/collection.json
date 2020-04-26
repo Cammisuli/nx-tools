@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "name": "storydocs",
+  "version": "0.0.1",
+  "schematics": {
+    "storydocs": {
+      "factory": "./src/schematics/storydocs/schematic",
+      "schema": "./src/schematics/storydocs/schema.json",
+      "description": "storydocs schematic"
+    }
+  }
+}
